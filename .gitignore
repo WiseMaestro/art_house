@@ -5,5 +5,6 @@ tmp/
 doc/
 *.swp
 *~
+art_house.tmproj
 .project
 .DS_Store
