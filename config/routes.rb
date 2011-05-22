@@ -1,4 +1,6 @@
 ArtHouse::Application.routes.draw do
+  root :to => 'pages#about'
+  resources :artists
   get "pages/about"
 
   get "pages/contact"
@@ -8,7 +10,6 @@ ArtHouse::Application.routes.draw do
   get "pages/gallery"
 
   get "pages/events"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

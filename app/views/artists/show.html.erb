@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag (@imgtag, :size => "375x350") %>
+	
+<p>
+  <b>Name:</b>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @artist.bio %>
+</p>
+
+
+<!-- <%= link_to 'Edit', edit_artist_path(@artist) %> | -->
+<%= link_to 'Back', artists_path %>

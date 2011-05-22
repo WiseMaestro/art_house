@@ -1,0 +1,32 @@
+#header 
+{
+width: 1000px;
+height: 80px;
+background-image: url(../images/ArtBanner.png);
+border-bottom: 2px solid #000000; 
+}
+#leftnav{
+	float: left;
+	width: 140px;
+	height: 1000px;
+	background-color: #000000;
+	border-right: 2px dashed #694717;
+}
+#leftnav a{
+	color: #696565;
+}
+#leftnav a:visited{
+	color: #806517;
+}
+#leftnav a:hover{
+	font-weight: bold;
+}
+
+#container{
+	background-color: #F8AA3C;
+}
+#body
+{	
+	height: 1000px;
+	background-color: #F8AA3C;
+}
