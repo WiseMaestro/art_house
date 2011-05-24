@@ -5,6 +5,14 @@ background-image: url(../images/ArtBanner.png);
 background-repeat: repeat.x;
 border-bottom: 2px solid #000000; 
 }
+#notice
+{
+	font-weight: bold;
+	height: 15px;
+	background-color: #F8AA3C;
+	color: #FFFFFF;
+	
+}
 #leftnav{
 	float: left;
 	width: 140px;

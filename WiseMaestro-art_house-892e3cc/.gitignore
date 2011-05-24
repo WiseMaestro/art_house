@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+doc/
+*.swp
+*~
+art_house.tmproj
+.project
+.DS_Store

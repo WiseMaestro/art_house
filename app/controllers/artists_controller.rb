@@ -1,8 +1,9 @@
 class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.xml
+  before_filter :authenticate, :except => [:show,:index]
   def index
-    @artists = Artist.all
+    @artists = Artist.find(:all, :order => 'name')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -78,9 +79,30 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @artist.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(artists_url) }
-      format.xml  { head :ok }
-    end
+    #respond_to do |format|
+    #  format.html { redirect_to(artists_url) }
+    #  format.xml  { head :ok }
+   # end
   end
+  
+  def delete
+    
+  end
+  protected
+  
+  def authenticate
+    authenticate_or_request_with_http_basic do |user, password|
+        for i in 1..1000 do
+          password = Digest::SHA256.hexdigest(password)
+        end
+        #if  !(user == "admin" && password == "bar")
+         if !(user == "admin" && password == "6a631dd57fc7f184b1e92a5ddea94076d1fb4c05341816201ce0454d79a04562")
+          redirect_to(artists_path, :notice => "Sorry. You can't do that.")
+          
+          
+        else
+          true
+        end 
+    end
+end
 end

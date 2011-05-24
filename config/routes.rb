@@ -1,6 +1,8 @@
 ArtHouse::Application.routes.draw do
   root :to => 'pages#about'
-  resources :artists
+  resources :artists do
+    get :delete, :on => :member
+  end
   get "pages/about"
 
   get "pages/contact"
