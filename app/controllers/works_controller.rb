@@ -10,7 +10,7 @@ class WorksController < ApplicationController
   def index
     @works = Work.all
     @workcount = @works.length
-    @numperpage = 12
+    @numperpage = 6
     @numperline = 3
     @locclose = 0
     unless (params[:list])
@@ -41,14 +41,16 @@ class WorksController < ApplicationController
   def show_artist
     if params[:id].nil? then
         @works = Work.all
+        @artid = nil
       else
         @artist = Artist.find(Integer(params[:id]))
         @works = @artist.works
         @test = 1
+        @artid = Integer(params[:id])
     end
       @workcount = @works.length
       print "Workcount #{@workcount}"
-      @numperpage = 12
+      @numperpage = 6
       @numperline = 3
       @locclose = 0
         unless (params[:list])

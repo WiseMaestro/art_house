@@ -1,0 +1,25 @@
+<h1>Listing events</h1>
+
+<table border=1px, border-color=black>
+  <tr>
+    <th  border=1px, border-color=black>Name&nbsp&nbsp&nbsp</th>
+    <th  border=1px, border-color=black>Date&nbsp&nbsp&nbsp   </th>
+    <th  border=1px, border-color=black>Time&nbsp&nbsp&nbsp   </th>
+    <th  border=1px, border-color=black>Place&nbsp&nbsp&nbsp   </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %> &nbsp&nbsp&nbsp</td>
+    <td><%= event.date %>&nbsp&nbsp&nbsp</td>
+    <td><%= event.time %>&nbsp&nbsp&nbsp</td>
+    <td><%= event.place %>&nbsp&nbsp&nbsp</td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

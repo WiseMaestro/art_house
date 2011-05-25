@@ -95,11 +95,8 @@ class ArtistsController < ApplicationController
         for i in 1..1000 do
           password = Digest::SHA256.hexdigest(password)
         end
-        #if  !(user == "admin" && password == "bar")
          if !(user == "admin" && password == "6a631dd57fc7f184b1e92a5ddea94076d1fb4c05341816201ce0454d79a04562")
-          redirect_to(artists_path, :notice => "Sorry. You can't do that.")
-          
-          
+          redirect_to(artists_path, :notice => "Sorry. You can't do that.")          
         else
           true
         end 

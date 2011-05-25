@@ -1,4 +1,8 @@
 ArtHouse::Application.routes.draw do
+  resources :events do
+        get :delete, :on => :member
+      end
+
   resources :works do
     get :delete, :on => :member
     collection do
@@ -18,7 +22,6 @@ ArtHouse::Application.routes.draw do
 
   get "pages/gallery"
 
-  get "pages/events"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

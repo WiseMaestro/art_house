@@ -3,7 +3,7 @@
 	<% @count = @workcount / @numperpage + 1%>
 	<% unless @count == 1%>
 		<% for each in 1..@count%>
-			<%= link_to each, works_path(:list => each, :id => params[:id]) %>
+			<%= link_to (each, :controller => "works", :action => "show_artist", :list => "#{each}", :id => @artid) %>
 		<% end%>
 	<% end%>
 </p>
