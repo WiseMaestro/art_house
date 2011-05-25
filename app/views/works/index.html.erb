@@ -16,10 +16,10 @@
 	<%end%>
 	<% @start = (Integer(@list)-1) * @numperpage%>
 	<% unless @max < @start then %>
-		<h1>The Artwork: page 
+		<h2>The Artwork: page 
 			<%= @list%>
 			<br />
-		</h1>
+		</h2>
 		<center>
 		<table class = "outer">
 		<% (@start..@max).each do |index| %>

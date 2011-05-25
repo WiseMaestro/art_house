@@ -3,7 +3,7 @@
 	<% @count = @workcount / @numperpage + 1%>
 	<% unless @count == 1%>
 		<% for each in 1..@count%>
-			<%= link_to each, works_path(:list => each) %>
+			<%= link_to each, works_path(:list => each, :id => params[:id]) %>
 		<% end%>
 	<% end%>
 </p>
@@ -16,10 +16,17 @@
 	<% end%>
 	<% @start = (Integer(@list)-1) * @numperpage%>
 	<% unless @max < @start then %>
-		<h1>The Artwork: page 
+		<%if @artist.nil? then %>
+		<h2>The Artwork: page 
 			<%= @list%>
 			<br />
-		</h1>
+		</h2>
+		<% else %>
+		<h2><%= @artist.name %>'s Artwork: page 
+			<%= @list%>
+			<br />
+		</h2>
+		<%end%>
 		<center>
 		<table class = "outer">
 		<% (@start..@max).each do |index| %>
@@ -68,7 +75,7 @@
 		</center>
 	<% else %>
 		<%if Integer(@list) == 1 then%>
-				<h1>The gallery is empty.<br /><br/>We'll have some art up soon. </h1>
+				<h1>This artist hasn't posted any of their work.<br /> </h1>
 		<% else %>
 			<h1>There is no artwork on this page </h1>
 		<% end %>

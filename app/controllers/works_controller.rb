@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   # GET /works
   # GET /works.xml
-  before_filter :authenticate, :except => [:show,:index]
+  before_filter :authenticate, :except => [:show,:index, :show_artist]
   before_filter :load_artists
   
   def load_artists
@@ -42,7 +42,9 @@ class WorksController < ApplicationController
     if params[:id].nil? then
         @works = Work.all
       else
-        @works = Artist.find(Integer(params[:id])).works
+        @artist = Artist.find(Integer(params[:id]))
+        @works = @artist.works
+        @test = 1
     end
       @workcount = @works.length
       print "Workcount #{@workcount}"
