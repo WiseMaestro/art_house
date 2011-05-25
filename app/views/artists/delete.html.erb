@@ -1,5 +1,9 @@
 <h1>Deleted Artist</h1>
 
 <% @artist = Artist.find(params[:id])%>
+<% @works = @artist.works %>
+<% @works.each do |work| %>
+<% work.destroy %>
+<% end %>
 <% @artist.destroy %>
  <%= link_to 'Artists', artists_path %>

@@ -1,0 +1,5 @@
+<h1>Deleted Work</h1>
+
+<% @work = Work.find(params[:id])%>
+<% @work.destroy %>
+ <%= link_to 'Gallery', works_path %>

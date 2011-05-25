@@ -1,4 +1,3 @@
-<!-- TODO implement layouts -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +18,17 @@
 		<%= link_to "The Artists" , "/artists"%><br>
 		
 	</div>
+	<div id="rightnav">
+		<h4>Works by:</h4>
+		<%for each in @artists%>
+		<%= link_to (each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
+		<br />
+		<%end%>
+	</div>
 	<div id="body">
-		<center>
-<%= image_tag(@imgtag, :alt => "The Pittsburgh Art House", :size => "400x325") %>
 <%= yield %>
-</center>
 	</div>
 	</div>
 </body>
 </html>
+ 

@@ -1,4 +1,11 @@
 ArtHouse::Application.routes.draw do
+  resources :works do
+    get :delete, :on => :member
+    collection do
+      get 'show_artist'
+    end
+  end
+  match "/works/show_artist/:id" => "works#show_artist"
   root :to => 'pages#about'
   resources :artists do
     get :delete, :on => :member

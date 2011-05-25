@@ -1,0 +1,75 @@
+<p id="linkhead">
+
+	<%@count = @workcount / @numperpage + 1%>
+	<%unless @count == 1%>
+		<%for each in 1..@count%>
+			<%= link_to each, works_path(:list => each) %>
+		<%end%>
+	<%end%>
+</p>
+<p id="notice"><%= notice %></p>
+
+	<%if Integer(@list) * @numperpage < @works.length then%>
+		<%@max = Integer(@list) * @numperpage -1 %>
+	<%else%>
+		<%@max = (@works.length) -1 %>
+	<%end%>
+	<% @start = (Integer(@list)-1) * @numperpage%>
+	<% unless @max < @start then %>
+		<h1>The Artwork: page 
+			<%= @list%>
+			<br />
+		</h1>
+		<center>
+		<table class = "outer">
+		<% (@start..@max).each do |index| %>
+			<% @offset = index - @start %>
+			<% if (@offset  == (@offset / @numperline) * @numperline ) then%>
+				<% unless @locclose = 1%>
+					<% @locclose = 1 %>
+					<tr>
+				<% else%>
+					</tr>
+					<tr>
+				<% end %>
+			<% end%>
+			<td class="outer">
+				<table class="nested">
+					<tr>
+						<td class="inner">
+							<% @img = @works[index] %>
+						    <% @imgtag = "gallery/" + @img.name + ".jpg" %>
+						    <% unless FileTest.exists?("#{RAILS_ROOT}/public/images/#{@imgtag}") %>
+						     <% @imgtag = "NoImg.jpg" %>
+						    <% end %>
+							<%= link_to image_tag (@imgtag, :size => "200x200"), @img %>
+						</td>
+					</tr>
+					<tr>
+						<td class="inner">
+							<%= @works[index].name %>
+						</td>
+					</tr>
+					<tr>
+						<td class="inner">
+							by
+							<% @linkname= @works[index].artist.name%>
+							<% @linkpath = @works[index].artist %>
+							<%= link_to @linkname, @linkpath%>
+						</td>
+					</tr>
+
+				</table>
+			</td>
+
+		<% end %>
+			</tr>
+		</table>
+		</center>
+	<% else %>
+		<%if Integer(@list) == 1 then%>
+				<h1>The gallery is empty.<br /><br/>We'll have some art up soon. </h1>
+		<% else %>
+			<h1>There is no artwork on this page </h1>
+		<% end %>
+	<% end %>

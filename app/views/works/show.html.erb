@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @work.name %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%= Artist.find(@work.artist_id).name %>
+</p>
+
+<p>
+  <b>Medium:</b>
+  <%= @work.medium %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @work.date %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @work.size %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @work.status %>
+</p>
+<p>
+  <b>Price:</b>
+  <%= @work.price %>
+</p>
+<p>
+  <b>Seller:</b>
+  <%= @work.seller %>
+</p>
+
+<!-- <%= link_to 'Edit', edit_work_path(@work) %> | -->
+<%= link_to 'Back', works_path %>

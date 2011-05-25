@@ -1,6 +1,6 @@
 #header 
 {
-height: 80px;
+height: 75px;
 background-image: url(../images/ArtBanner.png);
 background-repeat: repeat.x;
 border-bottom: 2px solid #000000; 
@@ -29,6 +29,22 @@ border-bottom: 2px solid #000000;
 #leftnav a:hover{
 	font-weight: bold;
 }
+#rightnav{
+	float: right;
+	width: 140px;
+	height: 1000px;
+	background-color: #000000;
+	border-left: 2px dashed #694717;
+}
+#rightnav a{
+	color: #696565;
+}
+#leftnav a:visited{
+	color: #806517;
+}
+#leftnav a:hover{
+	font-weight: bold;
+}
 
 #container{
 	background-color: #F8AA3C;
@@ -37,4 +53,38 @@ border-bottom: 2px solid #000000;
 {	
 	height: 1000px;
 	background-color: #F8AA3C;
+	color: #222222;
+}
+table.outer
+{
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 600px;
+	height: 400px;
+}
+td.outer
+{
+	width: 33%;
+	border: 1px solid black;
+	border-collapse: collapse;
+	
+}
+ th.outer{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+table.nested, table.nested, td, th
+{
+	border: 0px;
+	border-collapse: collapse;
+}
+td.inner
+{
+	border: 0px;
+	width: 200px;
+	border-collapse: collapse;
+}
+th.inner{
+	border: 0px;
+	border-collapse: collapse;
 }
