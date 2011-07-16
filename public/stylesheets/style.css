@@ -1,9 +1,74 @@
 #header 
 {
-height: 75px;
-background-image: url(../images/ArtBanner.png);
-background-repeat: repeat.x;
+position: relative;
+height: 195px;
+width: 1000px;
+background-color: #000000;
 border-bottom: 2px solid #000000; 
+top: 10px;
+left: 20px;
+border-radius: 50px;
+-moz-border-radius: 50px;
+}
+.headimg{
+position: inherit;
+
+left: 0px;
+padding-bottom: 10px;
+border-radius: 25px;
+-moz-border-radius: 50px;
+
+}
+.headtext{
+position: inherit;
+float: left;
+padding-left: 20px;
+padding-top: 10px;
+}
+.leftnav{
+    position: inherit;
+        margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	height: 20px;
+	float: bottom;
+	bottom: 10px;
+	background-color: #000000;
+}
+.leftnav a{
+    
+	color: #696565;
+}
+.leftnav a:visited{
+	color: #806517;
+}
+.leftnav a:hover{
+	font-weight: bold;
+}
+.leftnav a:visited{
+	color: #806517;
+}
+.leftnav a:hover{
+	font-weight: bold;
+}
+#navlist{
+height: 10px;
+}
+#navlist li
+{
+display: inline;
+padding-right: 80px;
+}
+#rightnav{
+	float: right;
+	width: 140px;
+	height: 1000px;
+	background-color: #000000;
+	border-left: 2px dashed #694717;
+}
+
+#rightnav a{
+	color: #696565;
 }
 #notice
 {
@@ -13,46 +78,24 @@ border-bottom: 2px solid #000000;
 	color: #FFFFFF;
 	
 }
-#leftnav{
-	float: left;
-	width: 140px;
-	height: 1000px;
-	background-color: #000000;
-	border-right: 2px dashed #694717;
+#bg{
+background-color: #000000;
+repeat: repeat;
+width: 1600px;
+height: 1300px;
 }
-#leftnav a{
-	color: #696565;
-}
-#leftnav a:visited{
-	color: #806517;
-}
-#leftnav a:hover{
-	font-weight: bold;
-}
-#rightnav{
-	float: right;
-	width: 140px;
-	height: 1000px;
-	background-color: #000000;
-	border-left: 2px dashed #694717;
-}
-#rightnav a{
-	color: #696565;
-}
-#leftnav a:visited{
-	color: #806517;
-}
-#leftnav a:hover{
-	font-weight: bold;
-}
-
-#container{
-	background-color: #F8AA3C;
+.container{
+    position: absolute;
+    background-image: url(../images/mural2.jpg);
+    background-size: 1500x1125;
+    background-repeat: no-repeat;
 }
 #body
 {	
+    position: relative;
+    top: 30px;
 	height: 1000px;
-	background-color: #F8AA3C;
+
 	color: #222222;
 }
 table.outer

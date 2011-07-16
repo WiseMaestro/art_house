@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
+  before_filter :set_env
   def about
+
     @title = "About Us"
     @imgtag = "about.jpg"
   end
@@ -23,5 +25,9 @@ class PagesController < ApplicationController
     @title = "Events"
     @imgtag = "events.jpg"
   end
+
+def set_env
+  @banner = "banner1.png"
+end
 
 end
