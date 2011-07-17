@@ -56,11 +56,13 @@
     padding-right: 80px;
 }
 #rightnav{
-    float: right;
+    position: absolute;
+    top: 300px;
+    right: 10px;
     width: 140px;
-    height: 1000px;
-    background-color: #000000;
-    border-left: 2px dashed #694717;
+    height: 750px;
+    background-color: #F8AA3C;
+    border: 2px ridge #694717;
 }
 
 #rightnav a{
@@ -73,31 +75,37 @@
     color: red;
 }
 #bg{
+
     background-color: #000000;
     repeat: repeat;
     width: 1600px;
     height: 1300px;
+    max-width: 1600px;
+    max-height: 1300px;
 }
-.container{
-
+#container{
     background-image: url(../images/mural2.jpg);
-    background-size: 1500x1125;
+    background-size: 1500x1125px;
     background-repeat: no-repeat;
 }
-#body
-{	
-    position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    top: 30px;
-    height: 1000px;
-
-    color: #222222;
-}
-table.outer
+#bodice
 {
-    margin-right: auto;
+
+     top: 10px;
+    height: 1000px;
+    width: 800px;
+    color: #222222;
+    padding-left: 0px;
+    
+   margin-right: auto;
     margin-left: auto;
+
+}
+
+table.out
+{
+    margin-top: 30px;
+    margin-left: -175px;
     background-color: 55AA33;
     border: 1px solid black;
     border-collapse: collapse;
@@ -149,4 +157,17 @@ padding-top:0px;
 .bottom{
 position: inherit;
 padding-bottom: 0px;
+}
+
+#TextContain{
+    margin-top: 50px;
+    margin-left: -250px;
+    text-align: center;
+    width: 700px;
+    height: 300px;
+    background-color: #EEC591;
+    color: black;
+    border: 5px solid black;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
 }

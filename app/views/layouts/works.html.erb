@@ -10,36 +10,38 @@
   </head>
   <body>
     <div id="bg">
-      <div class="container">
-	<div id="header">
-	  <div class="headtext"><%= image_tag("titleimg.png", :alt => "The Pittsburgh Art House", :size => "500x30") %></div>
-	  <div class="headimg"> 
-	    <%= image_tag(@banner, :alt => "The Pittsburgh Art House", :size => "1000x110") %>
-	  </div>
-	  <div class="leftnav">
-	    <ul id="navlist">
-	      <li>	<%= link_to "About Us" , "/pages/about"%></li>
-	      <li>	<%= link_to "Contact Us" , "/pages/contact"%></li>
-	      <li>	<%= link_to "Events" , "/events"%></li>
-	      <li>	<%= link_to "Gallery" , "/works"%></li>
-	      <li>	<%= link_to "The Artists" , "/artists"%></li>
-	    </ul>
-	  </div>
-	</div>
-<!--	<div id="rightnav">
-	  <h4>Works by:</h4>
-	  <%for each in @artists%>
-	  <%= link_to (each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
-	  <br />
-	  <%end%>
-	</div><!-->
-	<div id="body">
-<center>
 
-	    <%= yield %>
-</center>
-	</div>
+
+    <div id="container">
+
+    <div id="header">
+      <div class="headtext"><%= image_tag("titleimg.png", :alt => "The Pittsburgh Art House", :size => "500x30") %></div>
+      <div class="headimg"> 
+	<%= image_tag(@banner, :alt => "The Pittsburgh Art House", :size => "1000x110") %>
       </div>
+      <div class="leftnav">
+	<ul id="navlist">
+	  <li>	<%= link_to "About Us" , "/pages/about"%></li>
+	  <li>	<%= link_to "Contact Us" , "/pages/contact"%></li>
+	  <li>	<%= link_to "Events" , "/events"%></li>
+	  <li>	<%= link_to "Gallery" , "/works"%></li>
+	  <li>	<%= link_to "The Artists" , "/artists"%></li>
+	</ul>
+      </div>
+    </div>
+    <div id="bodice">
+
+      <div id="rightnav">
+	<h4>Works by:</h4>
+	<%for each in @artists%>
+	<%= link_to (each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
+	<br />
+	<%end%>
+      </div>
+
+      <%= yield %>
+    </div>	
+    </div>	
     </div>
   </body>
 </html>

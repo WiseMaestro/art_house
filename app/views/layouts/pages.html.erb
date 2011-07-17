@@ -10,7 +10,7 @@
   </head>
   <body>
 <div id="bg">
-    <div class="container">
+    <div id="container">
       <div id="header">
 	<div class="headtext"><%= image_tag("titleimg.png", :alt => "The Pittsburgh Art House", :size => "500x30") %></div>
 	<div class="headimg"> 
@@ -26,11 +26,12 @@
 	  </ul>
       </div>
       </div>
-      <div id="body">
-	<center>
+      <div id="bodice">
+      <div id="TextContain">
+
 
 	  <%= yield %>
-	</center>
+	  </div>
       </div>
     </div>
     </div>
