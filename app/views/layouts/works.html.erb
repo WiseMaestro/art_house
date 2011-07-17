@@ -1,34 +1,45 @@
+<!-- TODO implement layouts -->
 <!DOCTYPE html>
 <html>
-<head>
-	  <link href="#{RAILS_ROOT}/public/stylesheets/style.css" rel="stylesheet" type="text/css">
-  <title>Art House: <%= @title%></title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-	<div id="container">
-	<div id="header"></div>
-	<div id="leftnav">
-		<%= link_to "About Us" , "/pages/about"%><br>
-		<%= link_to "Contact Us" , "/pages/contact"%><br>
-		<%= link_to "Events" , "/events"%><br>
-		<%= link_to "Gallery" , "/works"%><br>
-		<%= link_to "The Artists" , "/artists"%><br>
-		
+  <head>
+
+    <title>Art House: <%= @title%></title>
+    <%= stylesheet_link_tag "style" %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="bg">
+      <div class="container">
+	<div id="header">
+	  <div class="headtext"><%= image_tag("titleimg.png", :alt => "The Pittsburgh Art House", :size => "500x30") %></div>
+	  <div class="headimg"> 
+	    <%= image_tag(@banner, :alt => "The Pittsburgh Art House", :size => "1000x110") %>
+	  </div>
+	  <div class="leftnav">
+	    <ul id="navlist">
+	      <li>	<%= link_to "About Us" , "/pages/about"%></li>
+	      <li>	<%= link_to "Contact Us" , "/pages/contact"%></li>
+	      <li>	<%= link_to "Events" , "/events"%></li>
+	      <li>	<%= link_to "Gallery" , "/works"%></li>
+	      <li>	<%= link_to "The Artists" , "/artists"%></li>
+	    </ul>
+	  </div>
 	</div>
-	<div id="rightnav">
-		<h4>Works by:</h4>
-		<%for each in @artists%>
-		<%= link_to (each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
-		<br />
-		<%end%>
-	</div>
+<!--	<div id="rightnav">
+	  <h4>Works by:</h4>
+	  <%for each in @artists%>
+	  <%= link_to (each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
+	  <br />
+	  <%end%>
+	</div><!-->
 	<div id="body">
-<%= yield %>
+<center>
+
+	    <%= yield %>
+</center>
 	</div>
-	</div>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
- 

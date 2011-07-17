@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   before_filter :authenticate, :except => [:show,:index]
+  before_filter :set_env
   def index
     @events = Event.all
 
@@ -81,21 +82,33 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+
   def delete
     
   end
-   protected
 
-    def authenticate
-      authenticate_or_request_with_http_basic do |user, password|
-          for i in 1..1000 do
-            password = Digest::SHA256.hexdigest(password)
-          end
-           if !(user == "admin" && password == "6a631dd57fc7f184b1e92a5ddea94076d1fb4c05341816201ce0454d79a04562")
-            redirect_to(events_path, :notice => "Sorry. You can't do that.")
-          else
-            true
-          end 
-      end
+  def set_env
+    @banner = "banner1.png"
   end
+
+
+  protected
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |user, password|
+      for i in 1..1000 do
+        password = Digest::SHA256.hexdigest(password)
+      end
+      if !(user == "admin" && password == "6a631dd57fc7f184b1e92a5ddea94076d1fb4c05341816201ce0454d79a04562")
+        redirect_to(events_path, :notice => "Sorry. You can't do that.")
+      else
+        true
+      end 
+    end
+  end
+
+
+
 end

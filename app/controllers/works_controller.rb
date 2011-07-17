@@ -2,7 +2,8 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.xml
   before_filter :authenticate, :except => [:show,:index, :show_artist]
-  before_filter :load_artists
+  before_filter :load_artists, :set_env
+
   
   def load_artists
     @artists = Artist.find(:all, :select => [:name, :id])    
@@ -122,6 +123,10 @@ class WorksController < ApplicationController
       format.html { redirect_to(works_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def set_env
+    @banner = "banner1.png"
   end
   
   protected
