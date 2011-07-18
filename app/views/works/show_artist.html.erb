@@ -81,7 +81,7 @@
 <div id="PersonalListing">
 <%if Integer(@list) == 1 then%>
 <h3>This artist hasn't posted any of their work. </h3>
-<%= link_to( "Back", :controller => "artists", :action => "show", :id => @artid) %>
+<%= link_to( "The Artist", :controller => "artists", :action => "show", :id => @artid) %>
 <% else %>
 <h3>There is no artwork on this page </h3>
 <% end %>
