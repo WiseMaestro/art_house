@@ -78,14 +78,14 @@
 
     background-color: #000000;
     repeat: repeat;
-    width: 1600px;
+    width: 1700px;
     height: 1300px;
-    max-width: 1600px;
+    max-width: 1700px;
     max-height: 1300px;
 }
 #container{
     background-image: url(../images/mural2.jpg);
-    background-size: 1600x1125px;
+    background-size: 1500x1125px;
     background-repeat: no-repeat;
 }
 #bodice
