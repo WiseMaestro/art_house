@@ -70,9 +70,11 @@
 </table>
 
 <% else %>
+<div id="eventslisting">
 <%if Integer(@list) == 1 then%>
-<h1>The gallery is empty.<br /><br/>We'll have some art up soon. </h1>
+<h3>The gallery is empty.<br /><br/>We'll have some art up soon. </h3>
 <% else %>
-<h1>There is no artwork on this page </h1>
+<h3>There is no artwork on this page </h3>
 <% end %>
+</div>
 <% end %>

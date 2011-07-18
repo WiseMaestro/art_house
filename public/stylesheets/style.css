@@ -91,12 +91,12 @@
 #bodice
 {
 
-     top: 10px;
+    top: 10px;
     height: 1000px;
     width: 800px;
     color: #222222;
     padding-left: 0px;
-   margin-right: auto;
+    margin-right: auto;
     margin-left: auto;
 }
 table.out
@@ -128,7 +128,7 @@ table.nested, table.nested, td, th
 td.inner
 {
     background-color: #55AA22;
-   border: 0px;
+    border: 0px;
     width: 200px;
     border-collapse: collapse;
 }
@@ -147,19 +147,31 @@ th.inner{
     border-radius: 15px;
     -moz-border-radius: 15px;
 }
+
+#PersonalListing{
+
+    text-align: center;
+    width: 400px;
+    height: 90px;
+    background-color: #EEC591;
+    color: black;
+    border: 5px solid black;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
 .top{
-position: inherit;
-padding-top:0px;
+    position: inherit;
+    padding-top:0px;
 }
 .bottom{
-position: inherit;
-padding-bottom: 0px;
+    position: inherit;
+    padding-bottom: 0px;
 }
 
 #TextContain{
     padding-left: 15px;
     padding-right: 15px;
-   margin-top: 50px;
+    margin-top: 50px;
     margin-left: -250px;
     text-align: center;
     width: 700px;
@@ -169,10 +181,10 @@ padding-bottom: 0px;
     border: 5px solid black;
     border-radius: 15px;
     -moz-border-radius: 15px;
- }
+}
 
 #ArtistList{
-   margin-top: 0px;
+    margin-top: 0px;
     margin-left: -250px;
     text-align: center;
     width: 700px;
@@ -184,13 +196,13 @@ padding-bottom: 0px;
     -moz-border-radius: 15px;
 }
 #ArtistPic{
-margin-right: 190px;
-float: right;
+    margin-right: 190px;
+    float: right;
 }
 #ArtistLeft{
     text-align: center;
     float: left;
-   margin-top: 0px;
+    margin-top: 0px;
     margin-left: -350px;
     margin-right: 50px;
     text-align: center;
@@ -201,12 +213,11 @@ float: right;
     border: 5px solid black;
     border-radius: 15px;
     -moz-border-radius: 15px;
-
 }
 #ArtLeft{
     text-align: center;
     float: left;
-   margin-top: 0px;
+    margin-top: 0px;
     margin-left: -350px;
     margin-right: 50px;
     margin-top: 30px;
@@ -218,4 +229,9 @@ float: right;
     border: 5px solid black;
     border-radius: 15px;
     -moz-border-radius: 15px;
+}
+#ArtistPic{
+    margin-right: 230px;
+    margin-top: 30px;
+    float: right;
 }

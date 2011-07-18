@@ -1,31 +1,34 @@
 <div id="ArtLeft">
 
-<p id="notice"><%= notice %></p>
-<br />
+  <p id="notice"><%= notice %></p>
+  <br />
   <b>Name:</b>
   <%= @work.name %>
-<br />
+  <br />
   <b>Artist:</b>
   <%= Artist.find(@work.artist_id).name %>
-<br />
+  <br />
   <b>Medium:</b>
   <%= @work.medium %>
-<br />
+  <br />
   <b>Date:</b>
   <%= @work.date %>
-<br />
+  <br />
   <b>Size:</b>
   <%= @work.size %>
-<br />
+  <br />
   <b>Status:</b>
   <%= @work.status %>
-<br />
+  <br />
   <b>Price:</b>
   <%= @work.price %>
-<br />
+  <br />
   <b>Seller:</b>
   <%= @work.seller %>
 
-<!-- <%= link_to 'Edit', edit_work_path(@work) %> | -->
-<%= link_to 'Back', works_path %>
+  <!-- <%= link_to 'Edit', edit_work_path(@work) %> | -->
+  <%= link_to 'Back', works_path %>
+</div>
+<div id="ArtPic">
+  <%= image_tag("gallery/" + @work.name + ".jpg", :size => "375x350", :border=> 5) %>
 </div>
