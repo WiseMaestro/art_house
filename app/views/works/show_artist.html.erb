@@ -16,7 +16,7 @@
 	  <br />
 	</h3>
 	<% else %>
-	<h3><%= @artist.name %>'s Artwork: page 
+	<h3><%= link_to (@artist.name, :controller => "artists", :action => "show", :id => @artid) %>'s Artwork: page 
 	  <%= @list%>
 	  <br />
 	</h3>
@@ -78,9 +78,10 @@
   </table>
 
 <% else %>
-<div id="eventslisting">
+<div id="PersonalListing">
 <%if Integer(@list) == 1 then%>
-<h3>This artist hasn't posted any of their work.<br /> </h3>
+<h3>This artist hasn't posted any of their work. </h3>
+<%= link_to( "Back", :controller => "artists", :action => "show", :id => @artid) %>
 <% else %>
 <h3>There is no artwork on this page </h3>
 <% end %>

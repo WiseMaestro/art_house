@@ -14,7 +14,10 @@
   <b>Bio:&nbsp&nbsp</b>
   <%= @artist.bio.gsub( '\n', "<br \/><br \/>").html_safe %>
 <br /><br /><center>
-<%= link_to 'Back', artists_path %> </center>
+<%= link_to 'Artists', artists_path %> 
+<br />
+<%= link_to ("See their art" , :controller => "works", :action => "show_artist", :id => @artist.id) %>
+</center>
 </p>
 </div>
 
