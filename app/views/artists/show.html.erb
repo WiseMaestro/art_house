@@ -9,13 +9,17 @@
   <b>Name:</b>
   <%= @artist.name %>
 </p>
-
-<p>
-  <b>Bio:</b>
-  <%= @artist.bio %>
+<div id="floater">
+<p clear="both", height="350px", position="relative">
+  <b>Bio:&nbsp&nbsp</b>
+  <%= @artist.bio.gsub( '\n', "<br \/><br \/>").html_safe %>
+<br /><br /><center>
+<%= link_to 'Back', artists_path %> </center>
 </p>
-
+</div>
 
 <!-- <%= link_to 'Edit', edit_artist_path(@artist) %> | -->
-<%= link_to 'Back', artists_path %>
+
+
+
 </div>
