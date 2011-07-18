@@ -2,6 +2,7 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.xml
   before_filter :authenticate, :except => [:show,:index]
+  before_filter :set_env
   def index
     @artists = Artist.find(:all, :order => 'name')
 
@@ -87,6 +88,9 @@ class ArtistsController < ApplicationController
   
   def delete
     
+  end
+  def set_env
+    @banner = "banner1.png"
   end
   protected
   

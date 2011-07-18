@@ -1,8 +1,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= image_tag (@imgtag, :size => "375x350") %>
-	
+<div id="ArtistPic">
+<%= image_tag (@imgtag, :size => "375x350", :border=> 5) %>
+</div>
+<div id="ArtistLeft">	
 <p>
   <b>Name:</b>
   <%= @artist.name %>
@@ -16,3 +18,4 @@
 
 <!-- <%= link_to 'Edit', edit_artist_path(@artist) %> | -->
 <%= link_to 'Back', artists_path %>
+</div>
