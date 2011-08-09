@@ -41,25 +41,34 @@
         <tr>
           <td class="inner">
             <% @img = @works[index] %>
+            <div id="imageinstance">
             <% @imgtag = "gallery/" + @img.name + ".jpg" %>
             <% unless FileTest.exists?("#{RAILS_ROOT}/public/images/#{@imgtag}") %>
             <% @imgtag = "NoImg.jpg" %>
             <% end %>
 	    <%= link_to image_tag (@imgtag, :size => "200x200"), @img %>
-</td>
-</tr>
-<tr>
-  <td class="inner">
-    <%= @works[index].name %>
-  </td>
-</tr>
-<tr>
-  <td class="inner">
-    by
+    <div id="tagger">        <%= @works[index].name %>
+    <br/>by
     <% @linkname= @works[index].artist.name%>
     <% @linkpath = @works[index].artist %>
     <%= link_to @linkname, @linkpath%>
-  </td>
+</div>
+
+            </div> 
+</td>
+</tr>
+<tr>
+  <!-- <td class="inner"> -->
+  <!--   <%= @works[index].name %> -->
+  <!-- </td> -->
+</tr>
+<tr>
+  <!-- <td class="inner"> -->
+  <!--   by -->
+  <!--   <% @linkname= @works[index].artist.name%> -->
+  <!--   <% @linkpath = @works[index].artist %> -->
+  <!--   <%= link_to @linkname, @linkpath%> -->
+  <!-- </td> -->
 </tr>
 
 </table>

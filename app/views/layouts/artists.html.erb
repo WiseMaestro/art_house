@@ -11,6 +11,9 @@
   <body>
 <div id="bg">
     <div id="container">
+      <%= image_tag("mural2.jpg", :alt => "", :size=> "1500x1125") %>
+      </div>
+    <div id="opaque">
       <div id="header">
 	<div class="headtext"><%= image_tag("titleimg.png", :alt => "The Pittsburgh Art House", :size => "500x30") %></div>
 	<div class="headimg"> 
@@ -24,15 +27,20 @@
 	    <li>	<%= link_to "Gallery" , "/works"%></li>
 	    <li>	<%= link_to "The Artists" , "/artists"%></li>
 	  </ul>
-      </div>
+      </div>      
+      
       </div>
       <div id="bodice">
-
-
+	<span id="stuff">
+	
 
 	  <%= yield %>
-
-      </div>
+	  </span>
+	<span id="morestuff">
+	  Stuff
+	  </span>
+	</div>
+</div>
     </div>
     </div>
   </body>
