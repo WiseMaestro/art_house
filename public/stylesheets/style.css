@@ -1,9 +1,10 @@
 #header {
-    position: relative;
+     position: relative; 
     height: 195px;
     width: 1000px;
     background-color: #000000;
     border-bottom: 2px solid #000000; 
+
     top: 10px;
     left: 20px;
     border-radius: 50px;
@@ -12,7 +13,7 @@
     -webkit-box-shadow: 10px 7px 5px #555555;
 }
 .headimg{
-    position: inherit;
+    /* position: inherit; */
     left: 0px;
     padding-bottom: 10px;
     border-radius: 25px;
@@ -21,7 +22,7 @@
 
 }
 .headtext{
-    position: inherit;
+    /* position: inherit; */
     float: left;
     padding-left: 20px;
     padding-top: 10px;
@@ -57,11 +58,13 @@
 #rightnav{
     position: absolute;
     top: 300px;
-    right: 10px;
-    width: 140px;
-    height: 750px;
+    right: 40px;
+    max-width: 300px;
+    padding: 10px 10px 30px 10px;
+    max-height: 1000px;
     background-color: #F8AA3C;
     border: 2px ridge #694717;
+    border-radius: 10px;
 }
 
 #rightnav a{
@@ -70,7 +73,7 @@
 #notice
 {
     font-weight: bold;
-    height: 15px;
+    max-height: 25px;
     color: #7CFC00;
 }
 #bg{
@@ -80,9 +83,7 @@
 
     /* background-color: #331060; */
     repeat: repeat;
-    width: 2000px;
-    height: 1200px;
-    max-width: 2000px;
+     max-width: 2000px;
     max-height: 1200px;
 }
 #container{
@@ -101,19 +102,16 @@
 
 #bodice
 {
-
     top: 10px;
     height: 1000px;
     width: 800px;
     color: #222222;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
-}
+    padding-left: 10px;
+    }
 table.out
 {
-    margin-top: 30px;
-    margin-left: -175px;
+    margin-top: 0px;
+    margin-left: 125px;
     background-color: 55AA33;
     width: 600px;
     height: 400px;
@@ -193,12 +191,32 @@ th.inner{
     60% {-webkit-transform: scale(1.3, 1.3) rotate(7deg);}
     80% {-webkit-transform: scale (1.4, 1.4) rotate(-5deg);}
     100% {-webkit-transform: scale(1.5, 1.5) rotate(0deg);}
-/*to {-webkit-transform: scale(1.5, 1.5) rotate(0deg);}*/
+
 }
+h1{
+    font-family: myheadfont;
+}
+h3{
+    font-family: myheadfont;
+}
+
+@font-face{ 
+    font-family: myheadfont;
+	    src: url('../fonts/Sansation/Sansation_Regular.ttf');
+}
+@font-face{ 
+    font-family: myheadfont;
+	    src: url('../fonts/Sansation/Sansation_Bold.ttf');
+	    font-weight: bold;
+}
+
 #eventslisting{
     text-align: center;
     width: 250px;
     height: 80px;
+    padding-top: 0px;
+    margin-top: 20px;
+    margin-left: 400px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;
@@ -206,30 +224,27 @@ th.inner{
     -moz-border-radius: 15px;
 }
 #PersonalListing{
-    margin-left: -100px;
     text-align: center;
-    width: 400px;
-    height: 90px;
+    width: 450px;
+    max-height: 150px;
+    padding-top: 0px;
+    margin-top: 60px;
+    margin-left: 300px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;
     border-radius: 15px;
     -moz-border-radius: 15px;
 }
-.top{
-    position: inherit;
-    padding-top:0px;
-}
 .bottom{
     position: inherit;
     padding-bottom: 0px;
 }
-
 #TextContain{
     padding-left: 15px;
     padding-right: 15px;
     margin-top: 50px;
-    margin-left: -250px;
+    margin-left: 75px;
     text-align: center;
     width: 700px;
     height: 300px;
@@ -241,11 +256,13 @@ th.inner{
 }
 
 #ArtistList{
-    margin-top: 0px;
-    margin-left: -250px;
+    margin-top: 60px;
+    margin-left: 240px;
     text-align: center;
-    width: 700px;
-    height: 400px;
+    width: 500px;
+    padding-bottom: 25px;
+    max-height: 1500px;
+    max-width: 800px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;
@@ -254,33 +271,40 @@ th.inner{
 }
 
 #ArtistLeft{
+    margin-top: 0px;
     text-align: center;
-    float: left;
     padding-left: 5px;
     padding-right: 5px;
-    margin-top: -400px;
-    margin-left: -350px;
-    margin-right: 50px;
+    padding-top: 15px;
+    margin-left: 100px;
     text-align: center;
-    width: 500px;
-    height: 450px;
+    width: 600px;
+
+    max-height: 1000px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;
     border-radius: 15px;
     -moz-border-radius: 15px;
 }
+#artlist{
+list-style: none;
+height: 800px;
+width: 1000px;
+}
+#artlist li{
+    display: inline;
+}
 #ArtLeft{
-    text-align: center;
     float: left;
+    text-align: center;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: -350px;
-    margin-right: 50px;
-    margin-top: 30px;
+    padding-bottom: 15px;
+    margin-top: 100px;
     text-align: center;
     width: 300px;
-    height: 300px;
+    max-height: 400px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;
@@ -288,14 +312,23 @@ th.inner{
     -moz-border-radius: 15px;
 }
 #ArtistPic{
-    margin-right: 230px;
-    margin-top: 30px;
-    float: right;
+    display: inline;
+    margin-right: 40px;
+    margin-top: 60px;
+    float: left;
 }
-#ArtPic{
-    margin-right: 375px;
-    margin-top: 30px;
-    float: right;
+#ArtPic{ 
+    float: left;
+    margin-left: 60px;
+    padding-top: 30px;
+} 
+#biolist{
+    margin-top: 60px;
+    margin-left: 60px;
+}
+#biolist li{
+    display: inline;
+    padding-right: 40px;
 }
 
 #floater{vertical-align: middle; height:50%; margin-bottom:0px;}

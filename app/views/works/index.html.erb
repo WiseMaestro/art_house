@@ -1,6 +1,7 @@
 
-<p id="notice"><%= notice %>
-</p>
+<div id="notice"><%= notice %>
+  <b/>
+</div>
 
 <%if Integer(@list) * @numperpage < @works.length then%>
      <%@max = Integer(@list) * @numperpage -1 %>

@@ -1,14 +1,17 @@
 
 <p id="notice"><%= notice %></p>
-
+<ul id="biolist">
+<li class="bioli">
 <div id="ArtistPic">
 <%= image_tag (@imgtag, :size => "375x350", :border=> 5) %>
 </div>
+</li>
+<li class="bioli">
 <div id="ArtistLeft">	
-<p>
+
   <b>Name:</b>
   <%= @artist.name %>
-</p>
+
 <div id="floater">
 <p clear="both", height="350px", position="relative">
   <b>Bio:&nbsp&nbsp</b>
@@ -20,9 +23,7 @@
 </center>
 </p>
 </div>
-
 <!-- <%= link_to 'Edit', edit_artist_path(@artist) %> | -->
-
-
-
 </div>
+</li>
+</ul>
