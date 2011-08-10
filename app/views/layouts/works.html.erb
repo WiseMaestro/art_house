@@ -7,6 +7,8 @@
     <%= stylesheet_link_tag "style" %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
+<script type="text/javascript" src="/javascripts/trigger.js"></script>
+
   </head>
   <body>
     <div id="bg">
@@ -32,13 +34,16 @@
 	</div>
 	<div id="bodice">
 
-	  <div id="rightnav">
-	    <h4>Works by:</h4>
+	  <div id="rightnav" onmouseover="growit()" onmouseout="shrinkit()">
+	    <h2>Works by:</h2>
+	  </div>
+	    <div id="mouseexpand">
 	    <%for each in @artists%>
 	    <%= link_to (each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
 	    <br />
 	    <%end%>
-	  </div>
+	    </div>
+
 
 	  <%= yield %>
 	</div>	

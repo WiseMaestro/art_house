@@ -12,12 +12,13 @@
       <div id="PersonalListing">
 	<%if @artist.nil? then %>
 	<h3>The Artwork: page 
-	  <%= @list%>
+	  <span id="numberOverload"><%= @list%>
+	    </span>
 	  <br />
 	</h3>
 	<% else %>
 	<h3><%= link_to (@artist.name, :controller => "artists", :action => "show", :id => @artid) %>'s Artwork: page 
-	  <%= @list%>
+	  <span id="numberOverload"><%= @list%></span>
 	  <br />
 	</h3>
 	<%end%>

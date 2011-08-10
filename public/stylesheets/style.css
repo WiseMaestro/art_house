@@ -59,17 +59,81 @@
     position: absolute;
     top: 300px;
     right: 40px;
-    max-width: 300px;
-    padding: 10px 10px 30px 10px;
+    width: 100px;
+    padding: 5px 10px 5px 10px;
     max-height: 1000px;
-    background-color: #F8AA3C;
     border: 2px ridge #694717;
     border-radius: 10px;
-}
+    text-align: center;
+    
+    transition: width 0.5s;
+    -o-transition: width 0.5s;
+    -ms-transition: width 0.5s;
+    -moz-transition: width 0.5s;
+    -webkit-transition: width 0.5s;    
 
+/* Gradient */
+    /* For WebKit (Safari, Google Chrome etc) */    background: -webkit-gradient(linear, left top, left bottom, from(#00f), to(#fff));
+ /* For Mozilla/Gecko (Firefox etc) */   background: -moz-linear-gradient(top, #00f, #fff);
+  /* For Internet Explorer */ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF0000FF, endColorstr=#FFFFFFFF);
+
+}
+#rightnav:hover{
+    width: 150px; 
+}
 #rightnav a{
     color: #696565;
 }
+#mouseexpand{
+    display: block; 
+    position: absolute;
+    top: 400px;
+    right: 40px;
+    max-width: 300px;
+    padding: 5px 10px 5px 10px;
+    max-height: 1000px;
+    border: 2px ridge #694717;
+    border-radius: 10px;
+    font-size: 150%;
+    background-color: rgba(238, 197, 145, 1);
+    transform: scale(1, 0);
+    -ms-transform: scale(1, 0);
+    -moz-transform: scale(1, 0);
+    -webkit-transform: scale(1, 0);
+    -o-transform: scale(1, 0);
+    font-family: Linden;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: linear;
+  } 
+
+@-webkit-keyframes growlist{
+   0%{
+     -webkit-transform: scale(1, 0); 
+    }
+   5%{
+ -webkit-transform: scale(1, 0); 
+   }
+   15%{
+     -webkit-transform: scale(1, 1); 
+    }
+   100%{
+       -webkit-transform: scale(1, 1);
+       }
+}
+@-webkit-keyframes shrinklist{
+   0%{
+     -webkit-transform: scale(1, 1); 
+    }
+   90%{
+     -webkit-transform: scale(1, 1); 
+    }
+   100%{
+       -webkit-transform: scale(1, 0);
+       }
+}
+
 #notice
 {
     font-weight: bold;
@@ -162,6 +226,7 @@ td.inner #imageinstance #tagger{
     -webkit-transform: scale(0, 0);
     border-radius: 5px 5px 5px 5px;
     border: 5px groove rgba(80, 0, 110, 1);
+    font-family: Linden;
 }
 td.inner #imageinstance:hover #tagger{
     padding: 5px 5px 5px 5px;
@@ -194,12 +259,33 @@ th.inner{
 
 }
 h1{
-    font-family: myheadfont;
+    font-family: Linden;
+}
+h2{
+    font-family: Linden;
 }
 h3{
-    font-family: myheadfont;
+    font-family: Linden;
 }
-
+h4{
+    font-family: Linden;
+}
+h5{
+    font-family: Linden;
+}
+#numberOverload{
+    font-family: Times, Arial;
+    color: rgba(130, 30, 30, .8);
+}
+@font-face{
+    font-family: Linden;
+    src: url('../fonts/LindenHill/LindenHill-Italic.otf');
+}
+@font-face{
+    font-family: Linden;
+    src: url('../fonts/LindenHill/LindenHill.otf');
+    font-weight: bold;
+}
 @font-face{ 
     font-family: myheadfont;
 	    src: url('../fonts/Sansation/Sansation_Regular.ttf');
@@ -228,6 +314,7 @@ h3{
     width: 450px;
     max-height: 150px;
     padding-top: 0px;
+    padding-bottom: 10px;
     margin-top: 60px;
     margin-left: 300px;
     background-color: #EEC591;
