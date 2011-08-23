@@ -1,6 +1,35 @@
 <h1>Editing artist</h1>
+<div id="TextContain">
+<!-- <%= render 'form' %> -->
+<%= form_for(@artist) do |f| %>
 
-<%= render 'form' %>
+  <% if @artist.errors.any? %>
+      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
 
+      <ul>
+      <% @artist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+
+
+<%= f.text_field(:name) %>
+<br />
+<%= f.text_field(:bio) %>
+<br />
+<%= f.label(:sizex, "Vertical Photo size") %>
+<br />
+<%= f.text_field(:sizex) %>
+<br />
+<%= f.label(:sizey, "Horizontal photo size") %>
+<br />
+<%= f.text_field(:sizey) %>
+<br />
+<br />
+<%= f.submit("Submit") %> 
+<% end %>
+<br /><br />
 <%= link_to 'Show', @artist %> |
 <%= link_to 'Back', artists_path %>
+</div>

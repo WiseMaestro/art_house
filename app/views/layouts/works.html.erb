@@ -39,7 +39,7 @@
 	  </div>
 	    <div id="mouseexpand">
 	    <%for each in @artists%>
-	    <%= link_to (each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
+	    <%= link_to(each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
 	    <br />
 	    <%end%>
 	    </div>

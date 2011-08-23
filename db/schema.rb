@@ -10,35 +10,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110718203141) do
+ActiveRecord::Schema.define(:version => 20110823034059) do
 
   create_table "artists", :force => true do |t|
-    t.string   "name"
-    t.text     "bio",        :limit => 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.text      "bio"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "sizex",      :default => "350"
+    t.string    "sizey",      :default => "375"
   end
 
   create_table "events", :force => true do |t|
-    t.string   "name"
-    t.string   "date"
-    t.string   "time"
-    t.string   "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "date"
+    t.string    "time"
+    t.string    "place"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "works", :force => true do |t|
-    t.string   "name"
-    t.integer  "artist_id"
-    t.string   "medium"
-    t.string   "date"
-    t.integer  "price"
-    t.string   "status"
-    t.string   "seller"
-    t.string   "size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.integer   "artist_id"
+    t.string    "medium"
+    t.string    "date"
+    t.integer   "price"
+    t.string    "status"
+    t.string    "seller"
+    t.string    "size"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end

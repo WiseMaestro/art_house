@@ -162,15 +162,16 @@
 
     /* background-color: #331060; */
     repeat: repeat;
-     max-width: 2000px;
-    max-height: 1200px;
+    max-width: 2000px;
+    max-height: 2200px;
 }
 #container{
     position: absolute;
     /* background-image: url(../images/mural2.jpg); */
     /* background-size: 1500x1125px; */
     width: 1500px;
-    height: 1125px;
+    min-height: 1125px;
+    max-height: 2000px;
     /* background-repeat: no-repeat; */
     opacity: 0.2;
 }
@@ -182,7 +183,8 @@
 #bodice
 {
     top: 10px;
-    height: 1000px;
+    min-height: 1000px;
+    max-height: 2500px;
     width: 800px;
     color: #222222;
     padding-left: 10px;
@@ -398,7 +400,7 @@ h5{
     text-align: center;
     width: 600px;
 
-    max-height: 1000px;
+    max-height: 2000px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;
@@ -427,7 +429,7 @@ width: 1000px;
     margin-top: 100px;
     text-align: center;
     width: 300px;
-    max-height: 400px;
+    max-height: 700px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;

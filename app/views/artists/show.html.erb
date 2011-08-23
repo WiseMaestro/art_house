@@ -3,7 +3,9 @@
 <ul id="biolist">
 <li class="bioli">
 <div id="ArtistPic">
-<%= image_tag (@imgtag, :size => "375x350", :border=> 5) %>
+
+<%= image_tag(@imgtag, :size => "#{@sizey}x#{@sizex}", :border=> 5) %> 
+ <!-- <%= image_tag(@imgtag, :size => "375x350", :border=> 5) %> -->
 </div>
 </li>
 <li class="bioli">
@@ -13,14 +15,14 @@
   <%= @artist.name %>
 
 <div id="floater">
-<p clear="both", height="350px", position="relative">
+<p clear="both", position="relative">
   <b>Bio:&nbsp&nbsp</b>
   <%= @artist.bio.gsub( '\n', "<br \/><br \/>").html_safe %>
-<br /><br /><center>
+<br /><br />
 <%= link_to 'Artists', artists_path %> 
 <br />
-<%= link_to ("See their art" , :controller => "works", :action => "show_artist", :id => @artist.id) %>
-</center>
+<%= link_to("See their art" , :controller => "works", :action => "show_artist", :id => @artist.id) %>
+
 </p>
 </div>
 <!-- <%= link_to 'Edit', edit_artist_path(@artist) %> | -->

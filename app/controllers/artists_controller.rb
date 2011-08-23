@@ -17,6 +17,9 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @imgtag = "artists/" + @artist.name + ".jpg"
+    @sizex = @artist.sizex
+    @sizey = @artist.sizey
+
     unless FileTest.exists?("#{RAILS_ROOT}/public/images/#{@imgtag}")
       @imgtag = "NoImg.jpg"
     end

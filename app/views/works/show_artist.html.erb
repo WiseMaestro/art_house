@@ -17,7 +17,7 @@
 	  <br />
 	</h3>
 	<% else %>
-	<h3><%= link_to (@artist.name, :controller => "artists", :action => "show", :id => @artid) %>'s Artwork: page 
+	<h3><%= link_to(@artist.name, :controller => "artists", :action => "show", :id => @artid) %>'s Artwork: page 
 	  <span id="numberOverload"><%= @list%></span>
 	  <br />
 	</h3>
@@ -27,7 +27,7 @@
 	  <% @count = @workcount / @numperpage + 1%>
 	  <% unless @count == 1%>
 	  <% for each in 1..@count%>
-	  <%= link_to (each, :controller => "works", :action => "show_artist", :list => "#{each}", :id => @artid) %>
+	  <%= link_to(each, :controller => "works", :action => "show_artist", :list => "#{each}", :id => @artid) %>
 <% end%>
 <% end%>
 </p>
@@ -55,7 +55,7 @@
 	      <% unless FileTest.exists?("#{RAILS_ROOT}/public/images/#{@imgtag}") %>
 	      <% @imgtag = "NoImg.jpg" %>
 	      <% end %>
-	      <%= link_to image_tag (@imgtag, :size => "200x200"), @img %>
+	      <%= link_to image_tag(@imgtag, :size => "200x200"), @img %>
     <div id="tagger">        <%= @works[index].name %>
     <br/>by
     <% @linkname= @works[index].artist.name%>
