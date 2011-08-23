@@ -126,7 +126,7 @@ class WorksController < ApplicationController
   end
 
   def set_env
-    @banner = "banner1.png"
+    @banner = "banner.jpg"
   end
   
   protected
