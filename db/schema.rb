@@ -10,15 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823034059) do
+ActiveRecord::Schema.define(:version => 20110823212047) do
 
   create_table "artists", :force => true do |t|
     t.string    "name"
     t.text      "bio"
     t.timestamp "created_at"
     t.timestamp "updated_at"
-    t.string    "sizex",      :default => "350"
-    t.string    "sizey",      :default => "375"
+    t.string    "sizex",              :default => "350"
+    t.string    "sizey",              :default => "375"
+    t.string    "photo_file_name"
+    t.string    "photo_content_type"
+    t.integer   "photo_file_size"
+    t.datetime  "photo_updated_at"
   end
 
   create_table "events", :force => true do |t|

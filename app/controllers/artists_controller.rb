@@ -16,13 +16,16 @@ class ArtistsController < ApplicationController
   # GET /artists/1.xml
   def show
     @artist = Artist.find(params[:id])
-    @imgtag = "artists/" + @artist.name + ".jpg"
+    @imgtag = ""
+    if @artist.photo_file_name.nil?
+        @imgtag = "NoImg.jpg"
+    else
+      @imgtag = @artist.photo.url
+    end
     @sizex = @artist.sizex
     @sizey = @artist.sizey
 
-    unless FileTest.exists?("#{RAILS_ROOT}/public/images/#{@imgtag}")
-      @imgtag = "NoImg.jpg"
-    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @artist }

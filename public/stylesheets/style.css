@@ -357,7 +357,8 @@ h5{
     margin-left: 75px;
     text-align: center;
     width: 700px;
-    height: 300px;
+    min-height: 300px;
+    max-height: 700px;
     background-color: #EEC591;
     color: black;
     border: 5px solid black;
