@@ -51,7 +51,9 @@
 	    <td class="inner">
 	      <div id="imageinstance">
 	      <% @img = @works[index] %>
+	      <span id="photo">
 	    <%= link_to image_tag(@img.photo.url(:index)), @img %>
+	    </span>
     <div id="tagger">        <%= @works[index].name %>
     <br/>by
     <% @linkname= @works[index].artist.name%>

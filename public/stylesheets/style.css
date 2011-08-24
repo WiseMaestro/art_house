@@ -231,14 +231,14 @@ td.inner
     display: inline-block;
     padding: 0px 0px 0px 0px;
 
-
-        -ms-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
-        -moz-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
-        -webkit-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
-        -o-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
-        border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
+   -ms-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   -moz-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   -webkit-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   -o-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
 	
 }
+
 td.inner div
 {
 
@@ -475,7 +475,21 @@ width: 1000px;
 #ArtPic{ 
     float: left;
     margin-left: 60px;
-    padding-top: 90px;
+    /* padding-top: 90px; */
+    margin-top: 100px;
+
+    border-width: 10px;
+    display: inline-block;
+    padding: 0px 0px 0px 0px;
+
+   -ms-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   -moz-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   -webkit-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   -o-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+	
+
+
 } 
 #biolist{
     margin-top: 60px;
