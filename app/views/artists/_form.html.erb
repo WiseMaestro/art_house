@@ -1,39 +1,13 @@
-<!-- <%= form_for(@artist) do |f| %> -->
-<!--   <% if @artist.errors.any? %> -->
-<!--     <div id="error_explanation"> -->
-<!--       <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2> -->
+<%= form_for @artist, :html => { :multipart => true } do |f| %>
 
-<!--       <ul> -->
-<!--       <% @artist.errors.full_messages.each do |msg| %> -->
-<!--         <li><%= msg %></li> -->
-<!--       <% end %> -->
-<!--       </ul> -->
-<!--     </div> -->
-<!--   <% end %> -->
+<% if @artist.errors.any? %>
+<h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
 
-<!--   <div class="field"> -->
-<!--     <%= f.label :name %><br /> -->
-<!--     <%= f.text_field :name %> -->
-<!--   </div> -->
-<!--   <div class="field"> -->
-<!--     <%= f.label :bio %><br /> -->
-<!--     <%= f.text_field :bio %> -->
-<!--   </div> -->
-<!--   <div class="actions"> -->
-<!--     <%= f.submit %> -->
-<!--   </div> -->
-<!-- <% end %> -->
-
-<%= form_for(@artist) do |f| %>
-
-  <% if @artist.errors.any? %>
-      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
-
-      <ul>
-      <% @artist.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<ul>
+  <% @artist.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
 <% end %>
 <%= f.label(:photo, "Photo File") %>
 <br />
@@ -45,7 +19,7 @@
 <br />
 <%= f.label(:bio, "Bio:") %>
 <br />
-<%= f.text_field(:bio) %>
+<%= f.text_area(:bio) %>
 <br />
 <%= f.label(:sizex, "Vertical Photo size") %>
 <br />
