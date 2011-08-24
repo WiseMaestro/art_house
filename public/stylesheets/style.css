@@ -192,7 +192,7 @@
 table.out
 {
     margin-top: 0px;
-    margin-left: 125px;
+    margin-left: 230px;
     width: 600px;
     height: 400px;
 }
@@ -207,6 +207,10 @@ th.outer{
 }
 table.nested, table.nested, td, th
 {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+
     /* background-color: #EEC591; */
     /* border: 0px; */
     /* border-collapse: collapse; */
@@ -214,6 +218,10 @@ table.nested, table.nested, td, th
 }
 td.inner
 {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+
 
 
     width: 200px;
@@ -221,6 +229,9 @@ td.inner
 td.inner div
 {
 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
     -webkit-transition: -webkit-transform 1.5s;
     -moz-transition: -moz-transform 1.5s;
     -o-transition: -o-transform 1.5s;
@@ -451,7 +462,7 @@ width: 1000px;
 #ArtPic{ 
     float: left;
     margin-left: 60px;
-    padding-top: 30px;
+    padding-top: 90px;
 } 
 #biolist{
     margin-top: 60px;

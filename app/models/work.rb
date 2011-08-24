@@ -9,7 +9,7 @@ class Work < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif']  
   validates_attachment_size :photo, :less_than=>1.megabyte
   
-  validates :sizex, :presence => true, :numericality => { :greater_than => 100, :less_than_or_equal_to => 500}
+  validates :sizex, :presence => true, :numericality => { :greater_than => 100, :less_than_or_equal_to => 800}
   validates :sizey, :presence => true, :numericality => { :greater_than => 100, :less_than_or_equal_to => 800}
   validates :name, :presence => true, :length => {:minimum => 1, :maximum => 200}
   validates :artist_id, :numericality => true
@@ -17,5 +17,5 @@ class Work < ActiveRecord::Base
   validates :status, :presence => true, :length => {:minimum => 3, :maximum => 200}
   validates :medium, :presence => true, :length => {:minimum => 3, :maximum => 200}
   validates :size, :presence => true, :length => {:minimum => 3, :maximum => 200}
-  validates :date, :presence => true, :length => {:minimum => 10, :maximum => 200}  
+  validates :date, :presence => true, :length => {:minimum => 4, :maximum => 200}  
 end
