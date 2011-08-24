@@ -51,11 +51,7 @@
 	    <td class="inner">
 	      <div id="imageinstance">
 	      <% @img = @works[index] %>
-	      <% @imgtag = "gallery/" + @img.name + ".jpg" %>
-	      <% unless FileTest.exists?("#{RAILS_ROOT}/public/images/#{@imgtag}") %>
-	      <% @imgtag = "NoImg.jpg" %>
-	      <% end %>
-	      <%= link_to image_tag(@imgtag, :size => "200x200"), @img %>
+	    <%= link_to image_tag(@img.photo.url(:index)), @img %>
     <div id="tagger">        <%= @works[index].name %>
     <br/>by
     <% @linkname= @works[index].artist.name%>
