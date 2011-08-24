@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824013407) do
+ActiveRecord::Schema.define(:version => 20110824030642) do
 
   create_table "artists", :force => true do |t|
     t.string    "name"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20110824013407) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "sizex"
+    t.string   "sizey"
   end
 
 end
