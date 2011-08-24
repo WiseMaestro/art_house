@@ -191,7 +191,7 @@
 }
 table.out
 {
-    margin-top: 0px;
+     margin-top: 0px;
     margin-left: 230px;
     width: 600px;
     height: 400px;
@@ -225,6 +225,19 @@ td.inner
 
 
     width: 200px;
+}
+#photo{
+    border-width: 10px 10px 10px 10px;
+
+    padding: 0px 0px 0px 0px;
+
+
+        -ms-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
+        -moz-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
+        -webkit-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
+        -o-border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
+        border-image: url(../images/frame.png) 75% 50% 50% 50% repeat;
+	
 }
 td.inner div
 {
