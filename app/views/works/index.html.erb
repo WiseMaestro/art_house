@@ -43,9 +43,9 @@
           <td class="inner">
             <% @img = @works[index] %>
             <div id="imageinstance">
-	      <div id="photo">
+	      <span id="photo">
 	    <%= link_to image_tag(@img.photo.url(:index)), @img %>
-	    </div>
+	    </span>
     <div id="tagger">        <%= @works[index].name %>
     <br/>by
     <% @linkname= @works[index].artist.name%>
@@ -56,20 +56,6 @@
             </div> 
 </td>
 </tr>
-<tr>
-  <!-- <td class="inner"> -->
-  <!--   <%= @works[index].name %> -->
-  <!-- </td> -->
-</tr>
-<tr>
-  <!-- <td class="inner"> -->
-  <!--   by -->
-  <!--   <% @linkname= @works[index].artist.name%> -->
-  <!--   <% @linkpath = @works[index].artist %> -->
-  <!--   <%= link_to @linkname, @linkpath%> -->
-  <!-- </td> -->
-</tr>
-
 </table>
 </td>
 
