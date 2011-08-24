@@ -41,7 +41,7 @@
 }
 .leftnav{
     position: inherit;
-    margin-left: auto;
+    margin-left: 30px;
     margin-right: auto;
     width: 800px;
     height: 20px;
@@ -65,7 +65,7 @@
 #navlist li
 {
     display: inline;
-    padding-right: 80px;
+    padding-right: 60px;
 }
 #rightnav{
     position: absolute;
@@ -121,6 +121,10 @@
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-timing-function: linear;
+   -moz-animation-duration: 4s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-timing-function: linear;
   } 
 
 @-webkit-keyframes growlist{
@@ -146,6 +150,31 @@
     }
    100%{
        -webkit-transform: scale(1, 0);
+       }
+}
+@-moz-keyframes growlist{
+   0%{
+     -moz-transform: scale(1, 0); 
+    }
+   5%{
+ -moz-transform: scale(1, 0); 
+   }
+   15%{
+     -moz-transform: scale(1, 1); 
+    }
+   100%{
+       -moz-transform: scale(1, 1);
+       }
+}
+@-moz-keyframes shrinklist{
+   0%{
+     -moz-transform: scale(1, 1); 
+    }
+   90%{
+     -moz-transform: scale(1, 1); 
+    }
+   100%{
+       -moz-transform: scale(1, 0);
        }
 }
 
@@ -231,50 +260,48 @@ td.inner
     display: inline-block;
     padding: 0px 0px 0px 0px;
 
-   -ms-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   -moz-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   -webkit-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   -o-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
+   -ms-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   -moz-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   -webkit-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   -o-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
 	
 }
 
 td.inner div
 {
-
     margin-left: auto;
     margin-right: auto;
     padding: 10px 10px 10px 10px;
     -webkit-transition: -webkit-transform 1.5s;
     -moz-transition: -moz-transform 1.5s;
     -o-transition: -o-transform 1.5s;
-    transition: transform 1.5s;
 }
 td.inner div:hover
 {
-
-    -moz-animation: shaker 1s;
     -webkit-animation: shaker 0.75s;
     animation: shaker 1s linear;
     -webkit-animation-fill-mode: forwards;
-/* transform: scale(1.5, 1.5) rotate(360deg); */
-/* -webkit-transform: scale(1.5, 1.5) rotate(360deg); */
-/* -ms-transform: scale(1.5, 1.5); */
-/* -o-transform: scale(1.5, 1.5) rotate(360deg); */
-/* -moz-transform: scale(1.5, 1.5) rotate(360deg); */
+    -moz-transform: scale(1.5, 1.5);
 }
 td.inner #imageinstance #tagger{
     -webkit-transform: scale(0, 0);
     border-radius: 5px 5px 5px 5px;
     border: 5px groove rgba(80, 0, 110, 1);
     font-family: Linden, Times, Arial;
+    -moz-transform: scale(0, 0);
+    background: #EEC591;
+    background: rgba(238, 197, 145, 0);    
 }
 td.inner #imageinstance:hover #tagger{
     padding: 5px 5px 5px 5px;
     -webkit-animation: grower 0.75s linear;
     -webkit-animation-fill-mode: forwards;
+    -moz-animation: grower 0.75s linear;
+    -moz-transform: scale(1, 1);
     color: #821E64;
     color: rgba(130, 30, 100, 1);
+    background: rgba(238, 197, 145, 1);
 }
 th.inner{
 /* border: 0px; */
@@ -290,6 +317,16 @@ th.inner{
        background: rgba(238, 197, 145, 1);
       }
 }
+
+@-moz-keyframes grower
+{
+    from{-moz-transform: scale(0, 0);
+	 background: rgba(238, 197, 145, 0);
+	}
+    to{-moz-transform: scale(1, 1);
+       background: rgba(238, 197, 145, 1);
+      }
+}
 @-webkit-keyframes shaker
 {
     0% {-webkit-transform: scale(1, 1) rotate(0deg);}
@@ -298,6 +335,16 @@ th.inner{
     60% {-webkit-transform: scale(1.3, 1.3) rotate(7deg);}
     80% {-webkit-transform: scale (1.4, 1.4) rotate(-5deg);}
     100% {-webkit-transform: scale(1.5, 1.5) rotate(0deg);}
+
+}
+@-moz-keyframes shaker
+{
+    0% {-moz-transform: scale(1, 1) rotate(0deg);}
+    20% {-moz-transform: scale(1.1, 1.1) rotate(15deg);}
+    40% {-moz-transform: scale(1.2, 1.2) rotate(-10deg);}
+    60% {-moz-transform: scale(1.3, 1.3) rotate(7deg);}
+    80% {-moz-transform: scale (1.4, 1.4) rotate(-5deg);}
+    100% {-moz-transform: scale(1.5, 1.5) rotate(0deg);}
 
 }
 h1{
@@ -482,12 +529,11 @@ width: 1000px;
     display: inline-block;
     padding: 0px 0px 0px 0px;
 
-   -ms-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   -moz-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   -webkit-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   -o-border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-   border-image: url(../images/frame.png) 70% 50% 2% 50% stretch;
-	
+   -ms-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   -moz-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   -webkit-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   -o-border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
+   border-image: url(../images/mattedframe.png) 10 15 0 15 stretch;
 
 
 } 
