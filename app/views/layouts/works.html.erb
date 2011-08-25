@@ -39,7 +39,7 @@
 	  <div id="rightnav" onmouseover="growit()" onmouseout="shrinkit()">
 	    <h2>Works by:</h2>
 	  </div>
-	    <div id="mouseexpand">
+	    <div id="mouseexpand" onmouseover="growitopera()" onmouseout="shrinkitopera()">
 	    <%for each in @artists%>
 	    <%= link_to(each.name , :controller => "works", :action => "show_artist", :id => each.id) %>
 	    <br />

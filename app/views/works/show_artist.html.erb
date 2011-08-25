@@ -33,25 +33,25 @@
 </p>
 </div>
 
-  <table class="out">
+  <div class="out">
     <% (@start..@max).each do |index| %>
     <% @offset = index - @start %>
     <% if (@offset  == (@offset / @numperline) * @numperline ) then%>
     <% unless @locclose = 1%>
     <% @locclose = 1 %>
-    <tr>
+    <ul>
       <% else%>
-    </tr>
-    <tr>
+    </ul>
+    <ul>
       <% end %>
       <% end %>
-      <td class="outer">
+      <li class="outer">
 	<table class="nested">
 	  <tr>
 	    <td class="inner">
-	      <div id="imageinstance">
+	      <div class="imageinstance">
 	      <% @img = @works[index] %>
-	      <span id="photo">
+	      <span class="photo">
 	    <%= link_to image_tag(@img.photo.url(:index)), @img %>
 	    </span>
     <div id="tagger">        <%= @works[index].name %>
@@ -65,11 +65,11 @@
 	    </td>
 	  </tr>
 	</table>
-      </td>
+      </li>
 
       <% end %>
-    </tr>
-  </table>
+    </ul>
+  </div>
 
 <% else %>
 <div id="PersonalListing">

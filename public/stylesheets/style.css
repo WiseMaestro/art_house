@@ -29,9 +29,6 @@
     -webkit-border-radius: 25px;
     -o-border-radius: 25px;
     border-radius: 25px;
-
-
-
 }
 .headtext{
     /* position: inherit; */
@@ -84,6 +81,8 @@
     -o-transition: width 0.5s;
     transition: width 0.5s;
 
+    background: #88f;
+
 /* Gradient */
     /* For WebKit (Safari, Google Chrome etc) */    background: -webkit-gradient(linear, left top, left bottom, from(#00f), to(#fff));
  /* For Mozilla/Gecko (Firefox etc) */   background: -moz-linear-gradient(top, #00f, #fff);
@@ -115,18 +114,19 @@
     -moz-transform: scale(1, 0);
     -webkit-transform: scale(1, 0);
     -o-transform: scale(1, 0);
+    -o-transition: -o-transform 2s;
     transform: scale(1, 0);
     font-family: Linden, Times, Arial;
     -webkit-animation-duration: 4s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-timing-function: linear;
-   -moz-animation-duration: 4s;
+    -moz-animation-duration: 4s;
     -moz-animation-iteration-count: 1;
     -moz-animation-fill-mode: forwards;
     -moz-animation-timing-function: linear;
-  } 
-
+  }
+    
 @-webkit-keyframes growlist{
    0%{
      -webkit-transform: scale(1, 0); 
@@ -191,8 +191,6 @@
 
     /* background-color: #331060; */
     repeat: repeat;
-    max-width: 2000px;
-    max-height: 2200px;
 }
 #container{
     position: absolute;
@@ -218,32 +216,25 @@
     color: #222222;
     padding-left: 10px;
 }
-table.out
+div.out
 {
      margin-top: 0px;
-    margin-left: 230px;
-    width: 600px;
-    height: 400px;
+    margin-left: 50px;
+    min-width: 600px;
+    max-width: 1000px;
+    min-height: 400px;
+    max-height: 1000px;
 }
-td.outer
+li.outer
 {
+    float: left;
+    display: inline-block;
     width: 33%;
     
 }
-th.outer{
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-table.nested, table.nested, td, th
+table.nested, table.nested, td.inner
 {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-
-    /* background-color: #EEC591; */
-    /* border: 0px; */
-    /* border-collapse: collapse; */
-
+    height: 350px;
 }
 td.inner
 {
@@ -255,7 +246,15 @@ td.inner
 
     width: 200px;
 }
-#photo{
+td.inner div:hover{
+
+    -webkit-animation: shaker 0.75s;
+    animation: shaker 0.75s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-transform: scale(1.3, 1.3);
+
+}
+.photo{
     border-width: 10px 10px 10px 10px;
     display: inline-block;
     padding: 0px 0px 0px 0px;
@@ -277,28 +276,27 @@ td.inner div
     -moz-transition: -moz-transform 1.5s;
     -o-transition: -o-transform 1.5s;
 }
-td.inner div:hover
-{
-    -webkit-animation: shaker 0.75s;
-    animation: shaker 1s linear;
-    -webkit-animation-fill-mode: forwards;
-    -moz-transform: scale(1.5, 1.5);
-}
-td.inner #imageinstance #tagger{
+.imageinstance #tagger{
     -webkit-transform: scale(0, 0);
     border-radius: 5px 5px 5px 5px;
     border: 5px groove rgba(80, 0, 110, 1);
     font-family: Linden, Times, Arial;
     -moz-transform: scale(0, 0);
     background: #EEC591;
-    background: rgba(238, 197, 145, 0);    
+    background: rgba(238, 197, 145, 0.5);    
+    -ms-transition: -ms-transform 1.5s;
+    -o-transition: -o-transform 1.5s;
+    -o-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
 }
-td.inner #imageinstance:hover #tagger{
-    padding: 5px 5px 5px 5px;
+.imageinstance:hover #tagger{
     -webkit-animation: grower 0.75s linear;
     -webkit-animation-fill-mode: forwards;
     -moz-animation: grower 0.75s linear;
     -moz-transform: scale(1, 1);
+
+    -o-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
     color: #821E64;
     color: rgba(130, 30, 100, 1);
     background: rgba(238, 197, 145, 1);

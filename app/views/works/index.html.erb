@@ -4,46 +4,59 @@
 </div>
 
 <%if Integer(@list) * @numperpage < @works.length then%>
+     <!-- if the expected last work on the page is not past the length of works. -->
+     <!-- use it -->
      <%@max = Integer(@list) * @numperpage -1 %>
+     
      <%else%>
+
+     <!-- else use the last work in the list -->
      <%@max = (@works.length) -1 %>
      <%end%>
+
+     <!-- set the start point -->
      <% @start = (Integer(@list)-1) * @numperpage%>
      <% unless @max < @start then %>
 	<div id="eventslisting">
           <h3 class="top"> Artwork: page 
             <span id="numberOverload"><%= @list%></span>
           </h3>
-
+	  <!-- display a header -->
 	  <p class="bottom">
 	    <%@count = @workcount / @numperpage + 1%>
             <%unless @count == 1%>
-            <%for each in 1..@count%>
-            <%= link_to each, works_path(:list => each) %>
-     <%end%>
-     <%end%>
-</p>
-</div>
+               <%for each in 1..@count%>
+                  <%= link_to each, works_path(:list => each) %>
+                   <!-- link to all the other pages -->
+	       <%end%>
+	    <%end%>
+          </p>
+       </div>
+       <!-- end div eventslisting -->
 
-<table class="out">
+<div class="out">
   <% (@start..@max).each do |index| %>
   <% @offset = index - @start %>
   <% if (@offset  == (@offset / @numperline) * @numperline ) then%>
+  <!-- if we reached the number of pics in a row -->
   <% unless @locclose = 1%>
   <% @locclose = 1 %>
-  <tr>
-    <% else%>
-  </tr>
-  <tr>
+  <ul>
+  
+  <% else%>
+  </ul>
+  <ul>
     <% end %>
+<!-- end unless -->
     <% end%>
-    <td class="outer">
+<!-- end if  -->
+    <li class="outer">
       <table class="nested">
         <tr>
           <td class="inner">
             <% @img = @works[index] %>
-            <div id="imageinstance">
-	      <span id="photo">
+            <div class="imageinstance">
+	      <span class="photo">
 	    <%= link_to image_tag(@img.photo.url(:index)), @img %>
 	    </span>
     <div id="tagger">        <%= @works[index].name %>
@@ -52,17 +65,21 @@
     <% @linkpath = @works[index].artist %>
     <%= link_to @linkname, @linkpath%>
 </div>
-
-            </div> 
+<!-- tagger -->
+</div> 
+<!-- imageinstance -->
 </td>
+<!-- class inner -->
 </tr>
+<!-- inner row -->
 </table>
-</td>
+<!-- inner table -->
+</li>
 
 <% end %>
-</tr>
-</table>
-
+</ul>
+</div>
+<!-- container -->
 <% else %>
 <div id="eventslisting">
 <%if Integer(@list) == 1 then%>
