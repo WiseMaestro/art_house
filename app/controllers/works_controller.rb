@@ -3,7 +3,9 @@ class WorksController < ApplicationController
   # GET /works.xml
   before_filter :authenticate, :except => [:show,:index, :show_artist]
   before_filter :load_artists, :set_env
-
+ def set_env
+    @banner = "banner.jpg"
+  end
   
   def load_artists
     @artists = Artist.find(:all, :select => [:name, :id])    
