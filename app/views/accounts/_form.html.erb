@@ -1,4 +1,5 @@
-<%= form_for(@account) do |f| %>
+<div id="ArtistLeft">
+  <%= form_for(@account) do |f| %>
   <% if @account.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -16,8 +17,12 @@
     <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :hashedpass %><br />
-    <%= f.text_field :hashedpass %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label "Password Confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
     <%= f.label :artist %><br />
@@ -27,11 +32,9 @@
     <%= f.label :permission %><br />
     <%= f.text_field :permission %>
   </div>
-  <div class="field">
-    <%= f.label :salt %><br />
-    <%= f.text_field :salt %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+

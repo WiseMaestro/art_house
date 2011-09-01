@@ -121,16 +121,12 @@ class WorksController < ApplicationController
   def destroy
     @work = Work.find(params[:id])
     @work.destroy
-
     respond_to do |format|
       format.html { redirect_to(works_url) }
       format.xml  { head :ok }
     end
   end
 
-  def set_env
-    @banner = "banner.jpg"
-  end
   
   protected
   def self.encrypt(pass, salt)

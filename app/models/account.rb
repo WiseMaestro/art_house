@@ -16,14 +16,14 @@ validates_length_of :username, :within => 3..40
   def self.authenticate(username, pass)
     u=find(:first, :conditions=>["username = ?", username])
     return nil if u.nil?
-    return u if User.encrypt(pass, u.salt)==u.hashedpass
+    return u if Account.encrypt(pass, u.salt)==u.hashedpass
     nil
   end 
 
   def password=(pass)
     @password=pass
-    self.salt = User.random_string(10) if !self.salt?
-    self.hashedpass = User.encrypt(@password, self.salt)
+    self.salt = Account.random_string(10) if !self.salt?
+    self.hashedpass = Account.encrypt(@password, self.salt)
   end
 
 protected
