@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
     if authenticate("create")
       respond_to do |format|
       if @account.save
-        format.html { redirect_to(@work, :notice => 'Work was successfully created.') }
+        format.html { redirect_to(:action => :index, :notice => 'Work was successfully created.') }
         flash[:message] = "Signup successful"
       else
         format.html { render :action => "new" }
@@ -96,31 +96,42 @@ class AccountsController < ApplicationController
   end
 
   def authenticate(action)
-  #   @match = nil
-  #   if (session[:username].nil? or session[:passhash].nil?)
-  #     authenticate_or_request_with_http_basic do |user, password|
-  #       passhash = Account.encrypt(user, password)
-  #       @match= Account.find_by_username(user)
-  #       if @match.nil? or !(@match.hashedpass == passhash)
-  #         @match = nil
-  #       else
-  #         session[:username] = user
-  #         session[:passhash] = passhash
-  #       end
-  #     end
-  #   else
-  #     @match = Account.find_by_username(session[:username])
-  #     if !(@match.hashedpass == session[:passhash])
-  #       match = nil
-  #     end
-  #   end
+    @match = nil
+    if (session[:username].nil? or session[:passhash].nil?)
+      authenticate_or_request_with_http_basic do |user, password|
+        @match= Account.find_by_username(user)
+
+
+        passhash = "xxxxxxxxxx"
+        unless @match.nil?
+          passhash = Account.encrypt(password, @match.salt)
+        if !(@match.hashedpass == passhash)
+          @match = nil
+        else
+          session[:username] = user
+          session[:passhash] = passhash
+        end
+          else
+        @match = nil
+        
+        end
+      end
+# end authenticate_http
+    else
+      @match = Account.find_by_username(session[:username])
+      if !(@match.hashedpass == session[:passhash])
+        match = nil
+      end
+    end
     
-  #   if @match.nil?
-  #     false
-  #   else
-  #     permissions(action, @match)
-  #   end
-  # end
-   return true
-end
+
+    if @match.nil?
+      false
+    else
+      permissions(action, @match)
+    end
+
+
+  end
+
 end
