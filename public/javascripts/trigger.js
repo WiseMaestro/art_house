@@ -23,10 +23,12 @@ var elem = document.getElementById('mouseexpand');
 function growitopera(){
 	var elem = document.getElementById("mouseexpand");
 	elem.style.OTransform = "scale(1,1)";
+    elem.style.msTransform = "scale(1,1)";
 }
 
 function shrinkitopera(){
 var elem = document.getElementById('mouseexpand');
 	elem.style.OTransform = "scale(1,0)";
+    elem.style.msTransform = "scale(1,0)";
 }
 
