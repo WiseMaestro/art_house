@@ -1,5 +1,12 @@
 ArtHouse::Application.routes.draw do
-  resources :accounts
+  resources :accounts do
+    get :delete, :on => :member
+    collection do
+      get 'login'
+      get 'logout'
+    end
+  end
+
 
   resources :events do
         get :delete, :on => :member

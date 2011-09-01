@@ -1,9 +1,14 @@
 class AccountsController < ApplicationController
   before_filter :set_env
-before_filter :admin_required, :only=>['create']
-before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
+
+  def index
+    authenticate("login")
+    return
+  end
+
 
   def create
+    authenticate("create")
     respond_to do |format|
       @account = Account.new(@params[:account])
       if @account.save
@@ -15,116 +20,91 @@ before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
   end
 
   def login
-    if request.post?
-      if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
-        flash[:message]  = "Login successful"
-        redirect_to_stored
-      else
-        flash[:warning] = "Login unsuccessful"
-      end
-    end
+    authenticate("login")
+    return
   end
 
   def logout
     reset_session
     flash[:message] = 'Logged out'
-    redirect_to :action => 'login'
-  end
-
-
-  def change_password
-    @user=session[:user]
-    if request.post?
-      @user.update_attributes(:password=>params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-      if @user.save
-        flash[:message]="Password Changed"
-      end
-    end
-  end
-
-  def welcome
-  end
-  def hidden
-  end
-
-  protected
-
-  def authenticate
-    unless (session[:user].nil? and session[:passhash].nil?)
-      before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
-
-  def signup
-    @user = User.new(@params[:user])
-    if request.post?  
-      if @user.save
-        session[:user] = User.authenticate(@user.login, @user.password)
-        flash[:message] = "Signup successful"
-        redirect_to :action => "welcome"          
-      else
-        flash[:warning] = "Signup unsuccessful"
-      end
-    end
-  end
-
-  def login
-    if request.post?
-      if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
-        flash[:message]  = "Login successful"
-        redirect_to_stored
-      else
-        flash[:warning] = "Login unsuccessful"
-      end
-    end
-  end
-
-  def logout
-    session[:user] = nil
-    flash[:message] = 'Logged out'
-    redirect_to :action => 'login'
-  end
-
-  def forgot_password
-    if request.post?
-      u= User.find_by_email(params[:user][:email])
-      if u and u.send_new_password
-        flash[:message]  = "A new password has been sent by email."
-        redirect_to :action=>'login'
-      else
-        flash[:warning]  = "Couldn't send password"
-      end
-    end
-  end
-
-  def change_password
-    @user=session[:user]
-    if request.post?
-      @user.update_attributes(:password=>params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-      if @user.save
-        flash[:message]="Password Changed"
-      end
-    end
-  end
-
-  def welcome
-  end
-  def hidden
-  end
-  protected
-
-  def authenticate
-  if (session[:username].nil? and session[:passhash].nil?)
-    authenticate_or_request_with_http_basic do |user, password|
-      passhash = Account.encrypt(user, password)
-      match= Account.find_by_hashedpass(passhash)
    end
-   
-      if match.nil?
-        redirect_to(:action => unpriviledged)
+
+
+  # def change_password
+  #   authenticate("change_password")
+  #   if request.post?
+  #     @account.update_attributes(:password=>params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+  #     if @account.save
+  #       flash[:message]="Password Changed"
+  #     end
+  #   end
+  # end
+ def set_env
+    @banner = "banner.jpg"
+  end
+ 
+
+  protected
+
+
+
+  protected
+  def permissions(act, account)
+    permission = account.permission
+    if permission.nil?
+      false
+    else
+      artist = account.artist
+      if act == "create"
+        if permission > 0
+          true
+        else
+          false
+        end
+      elsif act == "delete"
+        if permission > 1
+          true
+        else
+          false
+        end
+      elsif act == "change_password"
+        if account.id == params[:id]
+          true
+        else
+          false
+        end
+      elsif act == "login"
+        true
       else
-        evaluate_permissions(action)
+        false     
       end
+    end
+  end
 
-  else
-
+  def authenticate(action)
+    @match = nil
+    if (session[:username].nil? or session[:passhash].nil?)
+      authenticate_or_request_with_http_basic do |user, password|
+        passhash = Account.encrypt(user, password)
+        @match= Account.find_by_username(user)
+        if @match.nil? or !(@match.hashedpass == passhash)
+          @match = nil
+        else
+          session[:username] = user
+          session[:passhash] = passhash
+        end
+      end
+    else
+      @match = Account.find_by_username(session[:username])
+      if !(@match.hashedpass == session[:passhash])
+        match = nil
+      end
+    end
+    
+    if @match.nil?
+      false
+    else
+      permissions(action, @match)
+    end
   end
 end
