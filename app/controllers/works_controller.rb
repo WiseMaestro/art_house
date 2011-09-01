@@ -133,7 +133,10 @@ class WorksController < ApplicationController
   end
   
   protected
-  
+
+  def self.encrypt(pass, salt)
+    Digest::SHA256.hexdigest(pass+salt)
+  end  
   def authenticate
     authenticate_or_request_with_http_basic do |user, password|
         for i in 1..1000 do

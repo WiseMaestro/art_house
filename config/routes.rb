@@ -1,4 +1,6 @@
 ArtHouse::Application.routes.draw do
+  resources :accounts
+
   resources :events do
         get :delete, :on => :member
       end
