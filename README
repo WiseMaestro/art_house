@@ -17,8 +17,6 @@ This will add a user account that can have 6 levels of priviledge.
 
 -1 -- An artist that can create themselves and assume permission level 0.
 -2 -- An artist that can create themselves and assume permission level 1. Only a superuser can do this.
--3 -- An artist that can create themselves and assume permission level 2. Only a superuser can do this.
-
 0 -- An artist. They can only create or edit works that they created. 
      They can also edit their profile.
      A user of level 0 must have an artist number or they will not be able to edit anything.

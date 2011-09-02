@@ -15,7 +15,6 @@
     <td><%= account.username %></td>
     <td><%= account.artist %></td>
     <td><%= account.permission %></td>
-    <td><%= link_to 'change password', :controller => "accounts", :action => 'changepassword', :id => account.id %></td>
     <td><%= link_to 'Make Super', :controller => "accounts", :action => 'makesuper', :id => account.id %></td>
     <td><%= link_to 'Make Admin', :controller => "accounts", :action => 'makeadmin', :id => account.id %></td>
     

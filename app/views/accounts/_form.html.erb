@@ -17,19 +17,19 @@
     <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label "New Account Password" %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label "Password Confirmation" %><br />
+    <%= f.label "New Password Confirmation" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label :artist %><br />
+    <%= f.label "Artist id, found when viewing the artist: -1 if not created yet or not an artist" %><br />
     <%= f.text_field :artist %>
   </div>
   <div class="field">
-    <%= f.label :permission %><br />
+    <%= f.label "Permission: -1 for new artist, -2 for new artist that will administrate. 0 for existing artist. 1 for administrator. 2 for Super" %><br />
     <%= f.text_field :permission %>
   </div>
   <div class="actions">

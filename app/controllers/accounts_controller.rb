@@ -53,10 +53,10 @@ def makesuper
 end
 
 def changepassword
-        @account = Account.find(params[:id])
+  @account = Account.find(params[:id])
   unless @account.nil?
     id = authenticate('get_id')
-    if id = params[:id].to_i
+    if id == params[:id].to_i
       respond_to do |format|
         format.html
       end

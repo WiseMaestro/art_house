@@ -38,17 +38,23 @@
 }
 .leftnav{
     position: inherit;
-    margin-left: 30px;
+    margin-left: 35px;
     margin-right: auto;
     width: 800px;
     height: 20px;
     float: bottom;
     bottom: 10px;
     background-color: #000000;
+    -ms-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
 }
 .leftnav a{
     color: #696565;
     text-decoration: none;
+
 }
 .leftnav a:visited{
     color: #806517;
