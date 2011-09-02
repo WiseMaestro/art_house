@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   before_filter :set_env
   before_filter :auth
   def index
-
+    @ident = authenticate("get_id")
   end
 
   def new
@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
     @permission = authenticate('makeadmin')
       unless @account.nil?
     if @permission and (@account.permission > -1) and (1 > @account.permission)
-
+      
       @account.update_attribute(:permission, 1)
       respond_to do |format|
         format.html { redirect_to :action => 'list' }
@@ -51,6 +51,59 @@ def makesuper
     permalt
   end
 end
+
+def changepassword
+        @account = Account.find(params[:id])
+  unless @account.nil?
+    id = authenticate('get_id')
+    if id = params[:id].to_i
+      respond_to do |format|
+        format.html
+      end
+    else
+      permalt
+    end
+  else
+    permalt
+  end
+
+end
+
+
+  def updater
+      @account = Account.find(params[:account])
+    if authenticate("get_id").to_i == @account.id
+        respond_to do |format|
+          if @account.save
+            format.html { redirect_to :action => "index" }
+            flash[:message] = "Signup successful"
+          else
+            format.html { render :action => "new" }
+            flash[:warning] = "Signup unsuccessful"
+          end
+        end
+      else
+        permalt
+      end
+    end
+
+  def update
+      @account = Account.find(params[:id])
+      if true
+        respond_to do |format|
+          if @account.update_attributes(params[:account])
+            format.html { redirect_to :action => "index" }
+            flash[:message] = "Signup successful"
+          else
+            format.html { render :action => "changepassword" }
+            flash[:warning] = "Signup unsuccessful"
+          end
+        end
+      else
+        permalt
+      end
+    end
+
 
     def create
       @account = Account.new(params[:account])
@@ -80,10 +133,10 @@ end
       if authenticate("list")
         @accounts = Account.find(:all)
       else
-        #permalt
+        permalt
       end
     end
-
+  
     def delete
 
     end
@@ -149,12 +202,8 @@ end
           else
             false
           end
-        when "change_password"
-          if account.id == params[:id]
-            true
-          else
-            false
-          end
+        when "get_id"
+          account.id
         when "login"
           true
         when "list"
@@ -208,9 +257,11 @@ end
         # above end authenticate_http
       else
         @match = Account.find_by_username(session[:username])
+        unless @match.nil?
         if !(@match.hashedpass == session[:passhash])
           match = nil
         end
+          end
       end
       
 

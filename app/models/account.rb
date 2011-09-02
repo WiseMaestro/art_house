@@ -8,10 +8,7 @@ validates_length_of :username, :within => 3..40
 
 
   attr_protected :id, :salt
-
   attr_accessor :password, :password_confirmation
-
-
 
   def self.authenticate(username, pass)
     u=find(:first, :conditions=>["username = ?", username])
@@ -26,6 +23,13 @@ validates_length_of :username, :within => 3..40
     self.hashedpass = Account.encrypt(@password, self.salt)
   end
 
+  # def update_attribute()
+  #   unless password == pass_confirmation
+  #     return false
+  #   else
+  #     false
+  #   end
+  # end
 protected
 
   def self.encrypt(pass, salt)
