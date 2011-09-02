@@ -1,9 +1,16 @@
 ArtHouse::Application.routes.draw do
   resources :accounts do
     get :delete, :on => :member
+
+
+
     collection do
+      get 'makeadmin'
+      get 'makesuper'
+      get 'list'
       get 'login'
       get 'logout'
+      get 'permission'
     end
   end
 

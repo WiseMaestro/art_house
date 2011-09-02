@@ -4,7 +4,7 @@ validates_length_of :username, :within => 3..40
   validates_presence_of :username, :password, :password_confirmation, :salt, :permission
   validates_uniqueness_of :username
   validates_confirmation_of :password
-  validates_numericality_of :artist
+  validates_numericality_of :artist, :permission
 
 
   attr_protected :id, :salt
