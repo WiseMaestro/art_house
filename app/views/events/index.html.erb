@@ -1,22 +1,26 @@
+<% if @events.empty? %>
+<h1>There are no scheduled events</h1>
+<% else %>
 <h1>Listing events</h1>
-<center>
-<table position=relative, margin-left=300px, border=1px, border-color=black>
+
+  <table id="eventstable">
   <tr>
-    <th  border=1px, border-color=black>Name&nbsp&nbsp&nbsp</th>
-    <th  border=1px, border-color=black>Date&nbsp&nbsp&nbsp   </th>
-    <th  border=1px, border-color=black>Time&nbsp&nbsp&nbsp   </th>
-    <th  border=1px, border-color=black>Place&nbsp&nbsp&nbsp   </th>
+    <th>Name&nbsp&nbsp&nbsp</th>
+    <th>Date&nbsp&nbsp&nbsp   </th>
+    <th>Time&nbsp&nbsp&nbsp   </th>
+    <th>Place&nbsp&nbsp&nbsp   </th>
   </tr>
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.name %> &nbsp&nbsp&nbsp</td>
-    <td><%= event.date %>&nbsp&nbsp&nbsp</td>
-    <td><%= event.time %>&nbsp&nbsp&nbsp</td>
-    <td><%= event.place %>&nbsp&nbsp&nbsp</td>
+    <td><%= link_to event.name, event %> &nbsp&nbsp&nbsp</td>
+    <td><%= event.date %></td>
+    <td><%= event.time %></td>
+    <td><%= event.place %></td>
   </tr>
 <% end %>
 </table>
-</center>
+
+<% end %>
 <br />
 

@@ -114,7 +114,7 @@ class ArtistsController < ApplicationController
   end
   
   def delete
-        if authenticate("artoradm")
+        if authenticate("priviledged")
 
         else
           permalt

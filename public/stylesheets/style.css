@@ -572,5 +572,23 @@ width: 1000px;
     display: inline;
     padding-right: 40px;
 }
+#eventstable{
+margin-left: auto;
+margin-right: auto;
+width: 90%;
+border-collapse: collapse;
+}
+#eventstable td, #eventstable th{
+border-style: solid;
+border-color: black;
+border-width: 1px;
+}
+
+.logoimage{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 90%;
+}
 
 #floater{vertical-align: middle; height:50%; margin-bottom:0px;}
