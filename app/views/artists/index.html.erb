@@ -3,11 +3,12 @@
 <h1>Our Talented Artists</h1>
 
 
-<% @artists.each do |artist| %>
+<% @currentartists.each do |artist| %>
   <br />
     <%= link_to artist.name, artist %>
 <% end %>
-
-<br />
+ 
+<br /><br /><br />
+<%= link_to "See our former members.", :controller => :artists, :action => :alumni %>
 </div>
 

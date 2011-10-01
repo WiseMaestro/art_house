@@ -3,13 +3,21 @@ class ArtistsController < ApplicationController
   before_filter :set_env
   def index
     @artists = Artist.find(:all, :order => 'name')
-
+    @currentartists = @artists.find_all {|item| item.stillthere==1}
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @artists }
     end
   end
 
+  def alumni
+    @artists = Artist.find(:all, :order => 'name')
+    @alumni = @artists.find_all {|item| item.stillthere==0}
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @artists }
+    end
+  end
   def show
     @artist = Artist.find(params[:id])
     @imgtag = ""

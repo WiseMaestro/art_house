@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+      <div id="ArtistList">
+<h1>Our Talented Alumni</h1>
+
+
+<% @alumni.each do |artist| %>
+  <br />
+    <%= link_to artist.name, artist %>
+<% end %>
+
+<br /><br /><br />
+<%= link_to "See our current artists.", :controller => :artists, :action => :index %>
+</div>
+

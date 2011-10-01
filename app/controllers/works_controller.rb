@@ -8,7 +8,8 @@ class WorksController < ApplicationController
   end
   
   def load_artists
-    @artists = Artist.find(:all, :select => [:name, :id])    
+    artistlocal = Artist.find(:all, :select => [:name, :id, :stillthere])
+    @artists = artistlocal.find_all{ |item| item.stillthere==1}
   end
 
   def index
