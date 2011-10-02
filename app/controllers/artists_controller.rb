@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_filter :auth, :except => [:show,:index]
+  before_filter :auth, :except => [:show,:index, :alumni]
   before_filter :set_env
   def index
     @artists = Artist.find(:all, :order => 'name')
